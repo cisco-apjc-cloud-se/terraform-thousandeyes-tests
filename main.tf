@@ -12,13 +12,14 @@ locals {
   combined_agents = distinct(flatten([for test in var.http_tests : test.agents ]))
 
   http_tests = defaults(var.http_tests, {
-    enabled                 = true
+    ## BUG: Provider omits empty values meaning TE will use its default value.
+    enabled                 = true # BUG: Can't set to false/0
     interval                = 60
     content_regex           = ".*"
-    network_measurements    = false
-    mtu_measurements        = false
-    bandwidth_measurements  = false # not support on cloud agents
-    bgp_measurements        = false
+    network_measurements    = true # BUG: Can't set to false/0
+    mtu_measurements        = false # BUG: Can't set to false/0
+    bandwidth_measurements  = false # BUG: Can't set to false/0 # not support on cloud agents
+    bgp_measurements        = false # BUG: Can't set to false/0
     # use_public_bgp          = true # not configurable?
     num_path_traces         = 3 # 3-10?
     })

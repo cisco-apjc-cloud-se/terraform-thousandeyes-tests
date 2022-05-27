@@ -13,7 +13,7 @@ variable "http_tests" {
     mtu_measurements        = optional(bool) # 1
     bandwidth_measurements  = optional(bool) # 0
     bgp_measurements        = optional(bool) # 1
-    use_public_bgp          = optional(bool) # 1
+    # use_public_bgp          = optional(bool) # 1
     num_path_traces         = optional(number) # 0
     agents                  = list(string)
   }))

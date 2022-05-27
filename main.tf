@@ -20,7 +20,6 @@ locals {
     bgp_measurements        = true
     use_public_bgp          = false
     num_path_traces         = 0
-    agents                  = list(string)
     })
 }
 

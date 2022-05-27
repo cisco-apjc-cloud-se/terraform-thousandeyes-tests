@@ -5,6 +5,7 @@
 variable "http_tests" {
   type = map(object({
     name                    = string
+    enabled                 = optional(bool)
     interval                = optional(number)
     url                     = string
     content_regex           = optional(string)

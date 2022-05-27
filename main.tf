@@ -12,6 +12,7 @@ locals {
   combined_agents = distinct(flatten([for test in var.http_tests : test.agents ]))
 
   http_tests = defaults(var.http_tests, {
+    enabled                 = true
     interval                = 60
     content_regex           = ".*"
     network_measurements    = true
@@ -37,6 +38,7 @@ resource "thousandeyes_http_server" "http_tests" {
   for_each = local.http_tests
 
   test_name               = each.value.name
+  enabled                 = each.value.enabled == true ? 1 : 0
   interval                = each.value.interval
   url                     = each.value.url
   content_regex           = each.value.content_regex

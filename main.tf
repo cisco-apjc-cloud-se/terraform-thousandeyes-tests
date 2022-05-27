@@ -19,7 +19,7 @@ locals {
     bandwidth_measurements  = false # not support on cloud agents
     bgp_measurements        = true
     use_public_bgp          = false
-    num_path_traces         = 0
+    num_path_traces         = 1 # 1-10
     })
 }
 

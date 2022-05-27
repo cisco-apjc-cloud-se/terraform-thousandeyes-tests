@@ -31,7 +31,9 @@ data "thousandeyes_agent" "agents" {
   agent_name  = each.key
 }
 
-
+output "test" {
+  value = local.http_tests
+}
 ### ThousandEyes HTTP Tests ###
 
 resource "thousandeyes_http_server" "http_tests" {

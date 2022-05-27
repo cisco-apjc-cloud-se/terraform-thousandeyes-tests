@@ -49,7 +49,7 @@ resource "thousandeyes_http_server" "http_tests" {
   num_path_traces         = each.value.num_path_traces
 
   dynamic "agents" {
-    for_each = toset(each.value.agent_list)
+    for_each = toset(each.value.agents)
     content {
       agent_id = data.thousandeyes_agent.agents[agents.key].agent_id
     }

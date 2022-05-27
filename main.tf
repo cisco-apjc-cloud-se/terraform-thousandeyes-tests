@@ -40,11 +40,11 @@ resource "thousandeyes_http_server" "http_tests" {
   interval                = each.value.interval
   url                     = each.value.url
   content_regex           = each.value.content_regex
-  network_measurements    = each.value.network_measurements
-  mtu_measurements        = each.value.mtu_measurements
-  bandwidth_measurements  = each.value.bandwidth_measurements
-  bgp_measurements        = each.value.bgp_measurements
-  use_public_bgp          = each.value.use_public_bgp
+  network_measurements    = each.value.network_measurements == true ? 1 : 0
+  mtu_measurements        = each.value.mtu_measurements == true ? 1 : 0
+  bandwidth_measurements  = each.value.bandwidth_measurements == true ? 1 : 0
+  bgp_measurements        = each.value.bgp_measurements == true ? 1 : 0
+  use_public_bgp          = each.value.use_public_bgp == true ? 1 : 0
   num_path_traces         = each.value.num_path_traces
 
   dynamic "agents" {

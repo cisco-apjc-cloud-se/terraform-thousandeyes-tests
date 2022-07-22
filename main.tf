@@ -5,7 +5,7 @@ terraform {
     # }
     thousandeyes = {
       source = "thousandeyes/thousandeyes"
-      # version = "1.0.0-alpha.4"
+      version = "1.0.0-alpha.4"
     }
   }
   experiments = [module_variable_optional_attrs]

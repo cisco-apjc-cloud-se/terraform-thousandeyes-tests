@@ -5,16 +5,19 @@
 variable "http_tests" {
   type = map(object({
     name                    = string
-    enabled                 = optional(bool)
     interval                = optional(number)
     url                     = string
+
+    alerts_enabled          = optional(bool)
+    bandwidth_measurements  = optional(bool)
+    bgp_measurements        = optional(bool)
     content_regex           = optional(string)
-    network_measurements    = optional(bool) # 1
-    mtu_measurements        = optional(bool) # 1
-    bandwidth_measurements  = optional(bool) # 0
-    bgp_measurements        = optional(bool) # 1
-    # use_public_bgp          = optional(bool) # 1
-    num_path_traces         = optional(number) # 0
+    description             = optional(string)
+    enabled                 = optional(bool)
+    mtu_measurements        = optional(bool)
+    network_measurements    = optional(bool)
+    num_path_traces         = optional(number)
+
     agents                  = list(string)
   }))
 }
